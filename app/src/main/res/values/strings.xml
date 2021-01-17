@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Killers</string>
+    <string name="text_bottom">Войдите в свою учетную запись или зарегистрируйтесь</string>
+    <string name="btnSignIn">Войти</string>
+    <string name="btnRegister">Зарегистрироваться</string>
+    <string name="btnMap">Карта</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "894177210631",
+    "project_id": "killers-e58cd",
+    "storage_bucket": "killers-e58cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894177210631:android:d899281876effb61fdd5a2",
+        "android_client_info": {
+          "package_name": "com.example.killers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894177210631-3jet8jkq7v5f2k6mldqkj3jvh9mrsi5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL_PKkOGjmGw5MrkHr3Bs3oILgELNkSiA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894177210631-3jet8jkq7v5f2k6mldqkj3jvh9mrsi5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

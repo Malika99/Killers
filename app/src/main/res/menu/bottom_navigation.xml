@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/news_icon"
+        android:title=""/>
+
+    <item
+        android:id="@+id/nav_crimi"
+        android:icon="@drawable/crime_icon"
+        android:title=""/>
+
+
+    <item
+        android:id="@+id/nav_comment"
+        android:icon="@drawable/icon3"
+        android:title=""/>
+
+</menu>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="@drawable/black_back"
+        android:layout_gravity="center"
+        android:text="@string/btnMap"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnNum"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/black_back"
+            android:layout_gravity="center"
+            android:text="Телефон"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnContact"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/black_back"
+            android:layout_gravity="center"
+            android:text="Контакты"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/btnApplication"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/black_back"
+            android:layout_gravity="center"
+            android:text="Заявление"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
