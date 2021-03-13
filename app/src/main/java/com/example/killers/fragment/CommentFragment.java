@@ -1,6 +1,8 @@
 package com.example.killers.fragment;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -16,8 +18,11 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.killers.ApplicationActivity;
+import com.example.killers.MainActivity;
 import com.example.killers.MapsActivity;
 import com.example.killers.R;
+import com.example.killers.SessionManager;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 public class CommentFragment extends Fragment {
@@ -27,6 +32,10 @@ private Button button;
     Button btnNum;
     Dialog dialog;
     Button btnApp;
+    Button btnLogout;
+    SessionManager sessionManager;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +45,10 @@ private Button button;
         btnNum = view.findViewById(R.id.btnNum);
         buttonContact = view.findViewById(R.id.btnContact);
         btnApp = view.findViewById(R.id.btnApplication);
+        btnLogout = view.findViewById(R.id.btnLogout);
+        sessionManager = new SessionManager(getContext().getApplicationContext());
+
+
         btnApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +70,37 @@ private Button button;
             @Override
             public void onClick(View v) {
                 MapsActivity();
+            }
+        });
+
+
+
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setTitle("ВЫЙТИ");
+                builder.setMessage("Вы точно хотите выйти?");
+                builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseAuth.getInstance().signOut();
+                        sessionManager.setLogin(false);
+                        sessionManager.setEmail("");
+                        startActivity(new Intent(getContext().getApplicationContext(), MainActivity.class));
+                        getActivity().finish();
+                    }
+                });
+                builder.setNegativeButton("Закрыть", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+
             }
         });
 
@@ -90,6 +134,7 @@ private Button button;
 
         return view;
     }
+
 
     public void MapsActivity() {
         Intent intent = new Intent(getContext(), MapsActivity.class);

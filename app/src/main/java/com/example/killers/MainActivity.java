@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.killers.Model.User;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -21,6 +23,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
 
+    private TextView textBottom;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
         root = findViewById(R.id.root_element);
 
+        textBottom = findViewById(R.id.text_bottom);
+
         auth = FirebaseAuth.getInstance(); //с помощью этой функции запускаем авторизацию в бд
         db = FirebaseDatabase.getInstance(); //подключаемся к бд
         users = db.getReference("Users"); //указываем таблицу с которой будем работать
+
 
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -72,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Initialize SessionManager
         sessionManager = new SessionManager(getApplicationContext());
+
+
     }
 
 
@@ -208,4 +218,35 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
 
     }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser cUser = auth.getCurrentUser();
+        if (cUser != null)
+        {
+            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+            startActivity(intent);
+            showSigned();
+        }
+        else
+        {
+            notSigned();
+        }
+    }
+
+
+    private void  showSigned(){
+        btnSignIn.setVisibility(View.GONE);
+        btnRegister.setVisibility(View.GONE);
+        textBottom.setVisibility(View.GONE);
+    }
+
+    private void notSigned(){
+        btnSignIn.setVisibility(View.VISIBLE);
+        btnRegister.setVisibility(View.VISIBLE);
+        textBottom.setVisibility(View.VISIBLE);
+    }
+
 }

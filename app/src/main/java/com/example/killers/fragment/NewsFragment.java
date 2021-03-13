@@ -44,10 +44,6 @@ public class NewsFragment extends Fragment {
     Adapter adapter;
     List<Articles> articles = new ArrayList<>();
 
-    Button btnLogout;
-    SessionManager sessionManager;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,36 +53,6 @@ public class NewsFragment extends Fragment {
 
         swipeRefreshLayout = view.findViewById(R.id.swipeRefresh); //потяни чтобы обновить
         recyclerView = view.findViewById(R.id.recyclerView);
-
-        btnLogout = view.findViewById(R.id.btnLogout);
-        sessionManager = new SessionManager(getContext().getApplicationContext());
-
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
-                builder.setTitle("ВЫЙТИ");
-                builder.setMessage("Вы точно хотите выйти?");
-                builder.setPositiveButton("Да", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        sessionManager.setLogin(false);
-                        sessionManager.setEmail("");
-                        startActivity(new Intent(getContext().getApplicationContext(), MainActivity.class));
-                        getActivity().finish();
-                    }
-                });
-                builder.setNegativeButton("Закрыть", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
-
-            }
-        });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         String country = getCountry();

@@ -58,6 +58,18 @@
             android:layout_marginBottom="20dp"
             android:textSize="20sp" />
 
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/black_back"
+            android:text="ВЫЙТИ"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
 
     </LinearLayout>
 
